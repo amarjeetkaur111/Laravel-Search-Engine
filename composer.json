@@ -11,7 +11,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "AmarK\\LaravelSearchEngine": "src/"
+            "AmarK\\LaravelSearchEngine\\": "src/"
         }
     },
     "config": {
