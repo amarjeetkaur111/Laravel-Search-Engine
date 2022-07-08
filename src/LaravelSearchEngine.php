@@ -59,29 +59,7 @@ class LaravelSearchEngine
         $this->apiKey = $apiKey;
     }
 
-    /**
-     * Get search results
-     *
-     * Gets results from CSE only as array of objects where the most important variables are
-     * [title] - page title
-     * [htmlTitle] - page title with HTML tags
-     * [link] - page URL
-     * [displayLink] - displayed part of page URL
-     * [snippet] - short text from page with the searched phrase
-     * [htmlSnippet] - short text from page with the searched phrase with HTML tags
-     * complete list of parameters with description is located at
-     * https://developers.google.com/custom-search/json-api/v1/reference/cse/list#response
-     *
-     * Input parameters are available here
-     * https://developers.google.com/custom-search/json-api/v1/reference/cse/list#parameters
-     *
-     * @param $phrase
-     * @return array
-     * @throws Exception
-     * @link https://developers.google.com/custom-search/json-api/v1/reference/cse/list#response
-     * @link https://developers.google.com/custom-search/json-api/v1/reference/cse/list#parameters
-     */
-    public function getResults($phrase, $parameters = array())
+     public function getResults($phrase, $parameters = array())
     {
 
         /**
@@ -156,14 +134,7 @@ class LaravelSearchEngine
 
     }
 
-    /**
-     * Get full original response
-     *
-     * Gets full originated response converted from JSON to StdClass
-     * Full list of parameters is located at
-     * complete list of parameters with description is located at
-     * https://developers.google.com/custom-search/json-api/v1/reference/cse/list#response
-     *
+    /*
      * @return \stdClass
      * @url https://developers.google.com/custom-search/json-api/v1/reference/cse/list#response
      */
@@ -193,6 +164,29 @@ class LaravelSearchEngine
      */
     public function getTotalNumberOfpages(){
         return $this->originalResponse->searchInformation->totalResults;
+    }
+
+     /**
+     * Get the few details as requested
+     *
+     * @return array
+     */
+
+    public function getFewDetails(){
+        if(isset($this->originalResponse->items)){
+            $fewResult = array();
+            $count = 0;
+            foreach($this->originalResponse->items as $item)
+            {
+                $fewResult[$count]['title'] = $item->htmlTitle; 
+                $fewResult[$count]['url'] = $item->link; 
+                $fewResult[$count]['description'] = $item->htmlSnippet; 
+                $count++;
+            }
+            return $fewResult;
+        }
+        else
+            return array();
     }
 
 }

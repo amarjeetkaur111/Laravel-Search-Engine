@@ -93,3 +93,11 @@ $textResult->setApiKey('someApiId'); // sets the API key
 $results =  $textResult->getResults('search text'); // get first 10 results for query 'search text'
 ```
 
+If looking for only Search URl, Title & Description. By Default only 10 results are given
+
+```php
+$textResult = new LaravelSearchEngine(); // initialize
+$results =  $textResult->getResults('search text'); // get first 10 results for query 'search text'
+$fewResults =  $textResult->getFewDetails(); // get first 10 results for query 'search text'
+```
+
