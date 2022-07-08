@@ -1,0 +1,32 @@
+{
+    "name": "amark/laravelsearchengine",
+    "description": "Laravel package to get Google Custom Search results from Google Custom Search Engine API for both free and paid version.",
+    "homepage": "https://github.com/jdrda/laravel-google-custom-search-engine",
+    "keywords":
+        [
+            "search",
+            "google",
+            "custom",
+            "engine",
+            "free",
+            "paid",
+            "laravel"
+        ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Amarjeet Kaur",
+            "email": "amarjeet.kaur111@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "AmarK\\LaravelSearchEngine": "src/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev"
+}
