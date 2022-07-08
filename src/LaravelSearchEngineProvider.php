@@ -9,7 +9,7 @@ class LaravelSearchEngineProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__.'/../../config/laravelSearchEngine.php' => config_path('laravelSearchEngine.php'),
+            __DIR__.'/config/laravelSearchEngine.php' => config_path('laravelSearchEngine.php'),
         ]);
     }
 

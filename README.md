@@ -11,7 +11,7 @@ composer require amark/laravelsearchengine
 ```php
 'providers' => [
     '...',
-    'AmarK\LaravelSearchEngine\LaravelSearchEngineProvider'
+    AmarK\LaravelSearchEngine\LaravelSearchEngineProvider::class
 ];
 ```
 
@@ -40,7 +40,7 @@ Save search engine ID and api ID in your config/laravelSearchEngine.php
 Create an object and call the function getResults to get first 10 results
 ```php
 $textresult = new LaravelSearchEngine(); // initialize
-$results = $textresult->getResults('some phrase'); // get first 10 results for query 'some phrase' 
+$results = $textresult->getResults('search text'); // get first 10 results for query 'search text' 
 ```
 
 ```php
@@ -54,7 +54,7 @@ class GoogleSearchController extends Controller
 
   public function index(){
     $textResult = new LaravelSearchEngine(); // initialize
-    $results = $textResult->getResults('some phrase'); // get first 10 results for query 'some phrase' 
+    $results = $textResult->getResults('search text'); // get first 10 results for query 'search text' 
   }
 }
 ```
@@ -66,19 +66,19 @@ $parameters = array(
 )
 
 $textresult = new LaravelSearchEngine(); // initialize
-$results = $textresult->getResults('some phrase', $parameters); // get second 10 results for query 'some phrase'
+$results = $textresult->getResults('search text', $parameters); // get second 10 results for query 'search text'
 ```
 
 ```php
 $textResult = new LaravelSearchEngine(); // initialize
-$results = $textResult->getResults('some phrase'); // get first 10 results for query 'some phrase'
+$results = $textResult->getResults('search text'); // get first 10 results for query 'search text'
 $rawResults = $textResult->getRawResults(); // get complete response from Google
 ```
 
 For getting the number of results only use
 ```php
 $textResult = new LaravelSearchEngine(); // initialize
-$results =  $textResult->getResults('some phrase'); // get first 10 results for query 'some phrase'
+$results =  $textResult->getResults('search text'); // get first 10 results for query 'search text'
 $noOfResults = $textResult->getTotalNumberOfResults(); // get total number of results (it can be less than 10)
 ```
 
@@ -90,6 +90,6 @@ $textResult = new LaravelSearchEngine(); // initialize
 $textResult->setEngineId('someEngineId'); // sets the engine ID
 $textResult->setApiKey('someApiId'); // sets the API key
 
-$results =  $textResult->getResults('some phrase'); // get first 10 results for query 'some phrase'
+$results =  $textResult->getResults('search text'); // get first 10 results for query 'search text'
 ```
 
